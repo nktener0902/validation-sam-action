@@ -45,7 +45,7 @@ jobs:
       - name: sam validate
         uses: nktener0902/aws-sam-action/python3.8@feature/pip_update
         with:
-          sam_command: validate template.yaml
+          sam_command: validate -t template.yaml
           actions_comment: true
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
