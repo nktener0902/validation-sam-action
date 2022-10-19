@@ -11,7 +11,8 @@ jobs:
         uses: actions/checkout@master
 
       - name: sam validate
-        uses: nktener0902/aws-sam-action/python3.6@feature/pip_update
+        #uses: nktener0902/aws-sam-action/python3.6@feature/add_libffi-dev
+        uses: youyo/aws-sam-action/python3.6@v2
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
@@ -27,7 +28,8 @@ jobs:
         uses: actions/checkout@master
 
       - name: sam validate
-        uses: nktener0902/aws-sam-action/python3.7@feature/pip_update
+        #uses: nktener0902/aws-sam-action/python3.7@feature/add_libffi-dev
+        uses: youyo/aws-sam-action/python3.7@v2
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
@@ -43,7 +45,8 @@ jobs:
         uses: actions/checkout@master
 
       - name: sam validate
-        uses: nktener0902/aws-sam-action/python3.8@feature/pip_update
+        #uses: nktener0902/aws-sam-action/python3.8@feature/add_libffi-dev
+        uses: youyo/aws-sam-action/python3.8@v2
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
