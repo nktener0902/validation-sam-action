@@ -4,33 +4,47 @@ on:
       - "*"
 
 jobs:
-  aws_sam_validate_python36:
+  aws_sam_validate_python36_previous_sam:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
 
       - name: sam validate
-        uses: nktener0902/aws-sam-action/python3.6@feature/pip_update
-        #uses: youyo/aws-sam-action/python3.6@v2
+        uses: nktener0902/aws-sam-action/python3.6@feature/add_libffi-dev 
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
-          sam_version: 1.41.0
+          sam_version: 1.40.0  # latest compatible version of python3.6 is 1.41.0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'ap-northeast-1'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  aws_sam_validate_python37:
+  aws_sam_validate_python36_latest_sam:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@master
 
       - name: sam validate
-        uses: nktener0902/aws-sam-action/python3.7@feature/add_libffi-dev
-        #uses: youyo/aws-sam-action/python3.7@v2
+        uses: nktener0902/aws-sam-action/python3.6@feature/add_libffi-dev 
+        with:
+          sam_command: validate -t template.yaml
+          actions_comment: true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'ap-northeast-1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  aws_sam_validate_python37_previous_sam:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: sam validate
+        uses: nktener0902/aws-sam-action/python3.7@feature/add_libffi-dev 
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
@@ -40,7 +54,23 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'ap-northeast-1'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  aws_sam_validate_python38:
+  aws_sam_validate_python37_latest_sam:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: sam validate
+        uses: nktener0902/aws-sam-action/python3.7@feature/add_libffi-dev 
+        with:
+          sam_command: validate -t template.yaml
+          actions_comment: true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'ap-northeast-1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  aws_sam_validate_python38_previous_sam:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -48,11 +78,26 @@ jobs:
 
       - name: sam validate
         uses: nktener0902/aws-sam-action/python3.8@feature/add_libffi-dev
-        #uses: youyo/aws-sam-action/python3.8@v2
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
           sam_version: 1.59.0
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'ap-northeast-1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  aws_sam_validate_python38_latest_sam:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: sam validate
+        uses: nktener0902/aws-sam-action/python3.8@feature/add_libffi-dev
+        with:
+          sam_command: validate -t template.yaml
+          actions_comment: true
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
