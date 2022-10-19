@@ -1,6 +1,7 @@
 on:
   push:
-    branches: *
+    branches:
+      - "*"
 
 jobs:
   aws_sam_validate:
