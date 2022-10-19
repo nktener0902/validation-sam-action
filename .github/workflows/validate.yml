@@ -16,6 +16,7 @@ jobs:
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
+          sam_version: 1.59.0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -33,6 +34,7 @@ jobs:
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
+          sam_version: 1.59.0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -50,6 +52,7 @@ jobs:
         with:
           sam_command: validate -t template.yaml
           actions_comment: true
+          sam_version: 1.59.0
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
