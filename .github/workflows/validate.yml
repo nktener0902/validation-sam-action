@@ -4,7 +4,7 @@ on:
       - "*"
 
 jobs:
-  aws_sam_validate:
+  aws_sam_validate_python36:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,6 +20,12 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'ap-northeast-1'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  aws_sam_validate_python37:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
       - name: sam validate
         uses: nktener0902/aws-sam-action/python3.7@feature/pip_update
         with:
@@ -30,6 +36,12 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: 'ap-northeast-1'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  aws_sam_validate_python38:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
       - name: sam validate
         uses: nktener0902/aws-sam-action/python3.8@feature/pip_update
         with:
