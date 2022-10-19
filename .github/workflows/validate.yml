@@ -1,0 +1,41 @@
+on:
+  push:
+    branches: *
+
+jobs:
+  aws_sam_validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: sam validate
+        uses: nktener0902/aws-sam-action/python3.6@feature/pip_update
+        with:
+          sam_command: validate
+          actions_comment: true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'ap-northeast-1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: sam validate
+        uses: nktener0902/aws-sam-action/python3.7@feature/pip_update
+        with:
+          sam_command: validate
+          actions_comment: true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'ap-northeast-1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: sam validate
+        uses: nktener0902/aws-sam-action/python3.8@feature/pip_update
+        with:
+          sam_command: validate
+          actions_comment: true
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: 'ap-northeast-1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
